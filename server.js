@@ -15,6 +15,7 @@ async function startServer() {
 
     // ? Tell express about our router
     app.use(logger)
+    
     app.use(router)
 
     app.use(errorHandler)
