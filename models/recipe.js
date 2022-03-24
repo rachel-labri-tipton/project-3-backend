@@ -15,7 +15,7 @@ const recipeSchema = new mongoose.Schema({
     // ? Inside here live our fields
     recipeName: { type: String, required: true, unique: true },
     author: String,
-    type: { type: String, required: true, enum: ["breakfast", "lunch", "dinner", "snack", "dessert", "detox"] },
+    type: { type: String, required: true, enum: ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Detox"] },
     prepTime: { type: String, required: true },
     cookTime: { type: String, required: false },
     nutrition: String,
