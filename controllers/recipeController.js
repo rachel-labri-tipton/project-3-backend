@@ -1,7 +1,8 @@
-// import Recipe from "../models.recipe.js"
+
+import Recipe from "../models/recipe.js"
 
 
-async function index(req, res) {
+async function index(req, res, next) {
     try {
         const recipes = await Recipe.find()
         res.send(recipes)
@@ -16,12 +17,13 @@ async function show(req, res, next) {
         const recipe = await Recipe.findOne({ _id: id })
         if (!recipe) return res.json({ message: "Recipe not found." })
 
-        res.status(200).json(book)
+        res.status(200).json(recipe)
     } catch (err) {
         next(err)
     }
 
 }
+
 
 async function create(req, res, next) {
     const newRecipe = req.body
@@ -48,10 +50,10 @@ async function remove(req, res, next) {
         if (!recipeToDelete) {
             return res.json({ message: "Recipe to delete not found." })
         }
-        if (currentUser.role !== "admin") {
-            return res.status(401).json({ message: "You have to be an admin to delete this recipe." })
+        // if (currentUser.role !== "admin") {
+        //     return res.status(401).json({ message: "You have to be an admin to delete this recipe." })
 
-        }
+        // }
        recipeToDelete.remove()
         res.sendStatus(204)
 
@@ -60,6 +62,9 @@ async function remove(req, res, next) {
     }
 
 }
+
+
+
 
 async function update(req, res, next) {
     const id = req.params.id
@@ -80,6 +85,18 @@ async function update(req, res, next) {
 
 }
 
+async function showType(req, res, next) {
+    try {
+        const { recipeType } = req.params
+        const recipes = await Recipe.find({ type: recipeType })
+        if (!recipes) return res.json({ message: "We don't have this type of recipe." })
+        res.status(200).json(recipes)
+    }
+    catch (err) {
+        next(err)
+    }
+}
+
 
 
 
@@ -89,5 +106,6 @@ export default {
     show,
     create,
     remove, 
-    update
+    update, 
+    showType
 }

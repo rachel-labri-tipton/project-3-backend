@@ -1,8 +1,8 @@
 import { connectToDb, disconnectDb, dropDatabase } from "./helpers.js"
-import Recipe from "../models/model.js"
-import recipeData from "../db/data/recipes.js"
+import Recipe from "../models/recipe.js"
+import recipeData from "./data/recipeData.js"
 import User from "../models/user.js"
-import userData from "../db/data/users.js"
+import userData from "./data/userData.js"
 
 async function seed() {
     // connect to the db
@@ -12,8 +12,8 @@ async function seed() {
     await dropDatabase()
 
     // seed the data
-    const wines = await Recipe.create(recipeData)
-    console.log(`${wines.length} wines have been created! 🍿`)
+    const recipes = await Recipe.create(recipeData)
+    console.log(`${recipes.length} recipes have been created!`)
     const users = await User.create(userData)
     console.log(
         `Users ${users.map((user) => user.userName).join(", ")} have been created.`
@@ -22,7 +22,7 @@ async function seed() {
 
     // disconnect the db
     await disconnectDb()
-    console.log('bye')
+    console.log('Disconnecting from database.')
 
 }
 

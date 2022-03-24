@@ -9,7 +9,8 @@ export function connectToDb() {
         useUnifiedTopology: true
     }
 
-    return mongoose.connect("mongodb://127.0.01:27017/recipes", opts)
+    const connectionString = process.env.MONGO_CONNECT ? process.env.MONGO_CONNECT : "mongodb://127.0.0.1:27017/recipes"
+    return mongoose.connect(connectionString, opts)
 }
 
 export async function disconnectDb() {

@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "npx nodemon server.js",
+    "seed": "node db/seed.js",
     "test": "node --experimental-vm-modules --no-warnings  node_modules/.bin/jest -i --verbose --watch"
   },
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "i": "^0.3.7"
+    "i": "^0.3.7",
+    "mongoose": "^6.2.8",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",

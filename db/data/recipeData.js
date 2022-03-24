@@ -10,8 +10,9 @@ export default [
     recipeIngredients: ['egg', 'toast'],
     recipeInstructions: ['cook the egg', 'toast the toast', 'put the egg on the toast'],
     review: [],
-    image: '',
+    image: 'this will be an image',
+    description: 'Very basic recipe..',
     serve: 2,
-    description: 'Very basic recipe..'
-  },
+
+  }
 ]
