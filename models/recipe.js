@@ -5,6 +5,8 @@ const reviewSchema = new mongoose.Schema({
     // ? Inside here live our fields
     text: String,
     rating: Number,
+    // createdBy: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
+    // createAt: { type: Date, default: Date.now },
     user: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
 })
 
@@ -17,14 +19,14 @@ const recipeSchema = new mongoose.Schema({
     prepTime: { type: String, required: true },
     cookTime: { type: String, required: false },
     nutrition: String,
-    diet: Array,
+    vegan: Boolean,
+    vegeterian: Boolean,
+    glutenFree: Boolean,
     recipeIngredients: { type: Array, required: true },
     recipeInstructions: { type: Array, required: true },
     image: { type: String, required: false },
     description: { type: String, required: true },
     serve: { type: Number, required: true},
-    // createdBy: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
-    // createAt: { type: Date, default: Date.now },
     review: [reviewSchema],
 })
 
