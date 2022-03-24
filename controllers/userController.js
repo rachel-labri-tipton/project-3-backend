@@ -1,6 +1,7 @@
-// import User...
-// import bcrypt from "bcrypt"
-// import jwt from "jsonwebtoken"
+import User from "../models/user.js"
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
+
 async function index(req, res) {
     try {
         const users = await User.find()
@@ -42,8 +43,8 @@ async function remove(req, res, next) {
 
 async function login(req, res, next) {
     try {
-        const user = await User.findOne({ userName: req.body.userName })
-        console.log(user)
+        const user = await User.findOne({ eMail: req.body.eMail })
+        // console.log(user)
         if (!user) {
             return res.status(400).json({ message: "Invalid Credentials." })
         }
@@ -53,13 +54,12 @@ async function login(req, res, next) {
             return res.json({ message: "Wrong password" })
         }
         const payload = {
-            userName: user.userName,
+            eMail: user.eMail,
             role: user.role,
         }
         //don't put too much sensitive information in the payload that comes back
         //here we sign with a secret the given payload 
         const token = jwt.sign(payload, process.env.JWT_SECRET)
-        console.log(token)
         res.status(200).json({ token })
     } catch (err) {
         next(err)
