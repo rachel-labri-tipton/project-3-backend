@@ -9,4 +9,4 @@ dotenv.config()
 export const mongoConnect =
     process.env.MONGO_CONNECT || "mongodb://localhost/recipes"
 export const port = process.env.PORT || 4000
-export const secret = process.env.SECRET || "shhhh its a secret"
+export const secret = process.env.JWT_SECRET || "shhhh its a secret"
