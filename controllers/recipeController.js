@@ -28,11 +28,11 @@ async function show(req, res, next) {
 async function create(req, res, next) {
     const newRecipe = req.body
     try {
-        const recipeFound = await Recipe.findOne({ title: newRecipe.title })
+        const recipeFound = await Recipe.findOne({ recipeName: newRecipe.recipeName })
         if (recipeFound) {
             return res
                 .status(400)
-                .json({ message: `This recipe, ${newRecipe.title}, already exists` })
+                .json({ message: `This recipe, ${newRecipe.recipeName}, already exists` })
         }
         const createdRecipe = await Recipe.create(newRecipe)
         console.log(createdRecipe)
