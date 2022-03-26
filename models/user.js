@@ -10,6 +10,4 @@ const userSchema = new mongoose.Schema({
   role: { type: String, enum: ["admin", "user"], default: "user" },
 })
 
-// * Registering your schema with mongoose as a model.
-// * It uses the first argument ('Movie') as a unique reference.
 export default mongoose.model("User", userSchema)

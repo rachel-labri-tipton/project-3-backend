@@ -27,6 +27,7 @@ async function show(req, res, next) {
 
 async function create(req, res, next) {
     const newRecipe = req.body
+    console.log(newRecipe)
     try {
         const recipeFound = await Recipe.findOne({ recipeName: newRecipe.recipeName })
         if (recipeFound) {

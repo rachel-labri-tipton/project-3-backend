@@ -1,9 +1,21 @@
 import Recipe from "../models/recipe.js"
 
+async function index(req, res, next) {
+  const { id } = req.params
+  try {
+    const recipeReview = await Recipe.findById(id)
+    console.log(recipeReview)
+    res.send(recipeReview.review)
+  } catch (err) {
+    next(err)
+  }
+}
+
 async function create(req, res, next) {
     const { body: newReview } = req
-    const { recipeId } = req.params
+    const { id: recipeId } = req.params
     newReview.user = req.currentUser._id
+    newReview.createdBy = req.currentUser.userName
     try {
       const recipeToReview = await Recipe.findById(recipeId)
       recipeToReview.review.push(newReview)
@@ -17,10 +29,9 @@ async function create(req, res, next) {
 
 
 async function update(req, res, next) {
-    const { recipeId, reviewId } = req.params
-  
+    const { id:recipeId, reviewId } = req.params
+
     try {
-      // First: find the movie
       const recipe = await Recipe.findById(recipeId)
   
       if (!recipe) {
@@ -32,8 +43,8 @@ async function update(req, res, next) {
       if (!review) {
         return res.status(404).send({ message: "Review not found" })
       }
-  
-      if (!req.currentUser._id.equals(review.userName)) {
+
+      if (!req.currentUser._id.equals(review.user)) {
         return res
           .status(401)
           .send({ message: "Unauthorized - You didn't create that review" })
@@ -48,7 +59,7 @@ async function update(req, res, next) {
   }
   
   async function remove(req, res, next) {
-    const { recipeId, reviewId } = req.params
+    const { id: recipeId, reviewId } = req.params
   
     const recipe = await Recipe.findById(recipeId)
     if (!recipe) {
@@ -61,7 +72,7 @@ async function update(req, res, next) {
       }
   
   
-    if (!req.currentUser._id.equals(review.userName)) {
+    if (!req.currentUser._id.equals(review.user)) {
     return res
         .status(401)
         .send({ message: "Unauthorized - You didn't create that review" })
@@ -75,6 +86,7 @@ async function update(req, res, next) {
   }
   
   export default {
+    index,
     create,
     update,
     remove,
