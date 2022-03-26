@@ -75,8 +75,7 @@ async function update(req, res, next) {
         return res.status(401).json({ message: "You must be an admin to update this recipe." })
     }
     try {
-        const updatedRecipe = await Recipe.findOneAndUpdate({ _id: id }, recipeToUpdatee, { new: true })
-        console.log(updatedBook)
+        const updatedRecipe = await Recipe.findOneAndUpdate({ _id: id }, recipeToUpdate, { new: true })
         updatedRecipe.set(recipeToUpdate)
         await updatedRecipe.save()
         res.status(201).json(updatedRecipe)

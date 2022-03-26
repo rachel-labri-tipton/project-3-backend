@@ -27,10 +27,12 @@ router.route("/recipes/recipe-type/:recipeType")
      .get(auth,recipeController.showType)
 
 router.route("/recipes/:id/review")
-    .get(reviewController.index)
-    .post(reviewController.create)
+    .get(auth, reviewController.index)
+    .post(auth, reviewController.create)
 
 router.route("/recipes/:id/review/:reviewId")
+    .put(auth, reviewController.update)
+    .delete(auth, reviewController.remove)
 
 router.route("/users")
     .get(auth, userController.index)
