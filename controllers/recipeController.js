@@ -75,7 +75,6 @@ async function update(req, res, next) {
     // }
     try {
         const updatedRecipe = await Recipe.findOneAndUpdate({ _id: id }, recipeToUpdate, { new: true })
-        console.log(updatedRecipe)
         updatedRecipe.set(recipeToUpdate)
         await updatedRecipe.save()
         res.status(201).json(updatedRecipe)
