@@ -70,12 +70,12 @@ async function update(req, res, next) {
     const id = req.params.id
     const recipeToUpdate = req.body
     if (!recipeToUpdate) return res.json({ message: "Recipe not found." })
-    if (currentUser.role !== "admin") {
-        return res.status(401).json({ message: "You must be an admin to update this recipe." })
-    }
+    // if (currentUser.role !== "admin") {
+    //     return res.status(401).json({ message: "You must be an admin to update this recipe." })
+    // }
     try {
-        const updatedRecipe = await Recipe.findOneAndUpdate({ _id: id }, recipeToUpdatee, { new: true })
-        console.log(updatedBook)
+        const updatedRecipe = await Recipe.findOneAndUpdate({ _id: id }, recipeToUpdate, { new: true })
+        console.log(updatedRecipe)
         updatedRecipe.set(recipeToUpdate)
         await updatedRecipe.save()
         res.status(201).json(updatedRecipe)

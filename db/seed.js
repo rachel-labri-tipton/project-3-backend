@@ -4,6 +4,7 @@ import recipeData from "./data/recipeData.js"
 import User from "../models/user.js"
 import userData from "./data/userData.js"
 
+
 async function seed() {
     // connect to the db
     await connectToDb()
