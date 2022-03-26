@@ -13,7 +13,7 @@ export default async function auth(req, res, next) {
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET)
 
 
-        const user = await User.findOne({ userName: decodedToken.userName })
+        const user = await User.findOne({ eMail: decodedToken.eMail })
         //if you use find, you'll get empty array--empty array is a truthy value 
         if (!user) {
             return res.status(401).json({ message: "Unauthorized - User doesn't exist" })

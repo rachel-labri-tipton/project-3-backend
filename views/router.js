@@ -2,6 +2,7 @@ import express from "express"
 // ? Import all my controllers
 import recipeController from "../controllers/recipeController.js"
 import userController from "../controllers/userController.js"
+import reviewController from "../controllers/reviewController.js"
 import auth from "../middleware/auth.js"
 
 // ? This is a nice router object express gives you. Syntactic sugar
@@ -25,9 +26,11 @@ router.route("/recipes/:id")
 router.route("/recipes/recipe-type/:recipeType")
      .get(auth,recipeController.showType)
 
-
-// This will use auth
 router.route("/recipes/:id/review")
+    .get(reviewController.index)
+    .post(reviewController.create)
+
+router.route("/recipes/:id/review/:reviewId")
 
 router.route("/users")
     .get(auth, userController.index)
