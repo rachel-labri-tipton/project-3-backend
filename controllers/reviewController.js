@@ -1,5 +1,10 @@
 import Recipe from "../models/recipe.js"
 
+// // async function index(req, res, next) {
+
+// }
+
+
 async function create(req, res, next) {
     const { body: newReview } = req
     const { recipeId } = req.params
