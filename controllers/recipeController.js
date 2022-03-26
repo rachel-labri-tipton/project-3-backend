@@ -27,12 +27,13 @@ async function show(req, res, next) {
 
 async function create(req, res, next) {
     const newRecipe = req.body
+    console.log(newRecipe)
     try {
-        const recipeFound = await Recipe.findOne({ title: newRecipe.title })
+        const recipeFound = await Recipe.findOne({ recipeName: newRecipe.recipeName })
         if (recipeFound) {
             return res
                 .status(400)
-                .json({ message: `This recipe, ${newRecipe.title}, already exists` })
+                .json({ message: `This recipe, ${newRecipe.recipeName}, already exists` })
         }
         const createdRecipe = await Recipe.create(newRecipe)
         console.log(createdRecipe)
@@ -74,8 +75,7 @@ async function update(req, res, next) {
         return res.status(401).json({ message: "You must be an admin to update this recipe." })
     }
     try {
-        const updatedRecipe = await Recipe.findOneAndUpdate({ _id: id }, recipeToUpdatee, { new: true })
-        console.log(updatedBook)
+        const updatedRecipe = await Recipe.findOneAndUpdate({ _id: id }, recipeToUpdate, { new: true })
         updatedRecipe.set(recipeToUpdate)
         await updatedRecipe.save()
         res.status(201).json(updatedRecipe)
