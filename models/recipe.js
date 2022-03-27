@@ -22,6 +22,7 @@ const recipeSchema = new mongoose.Schema({
     vegan: Boolean,
     vegeterian: Boolean,
     glutenFree: Boolean,
+    featuredRecipe: Boolean,
     recipeIngredients: { type: Array, required: true },
     recipeInstructions: { type: Array, required: true },
     image: { type: String, required: false },

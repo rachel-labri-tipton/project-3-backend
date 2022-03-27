@@ -19,7 +19,7 @@ router.route('/recipes')
   .post(auth, recipeController.create);
 
 router.route('/recipes/:id')
-  .get(auth, recipeController.show)
+  .get(recipeController.show)
   .delete(auth, recipeController.remove)
   .put(auth, recipeController.update);
 
@@ -27,7 +27,7 @@ router.route('/recipes/recipe-type/:recipeType')
   .get(auth, recipeController.showType);
 
 router.route('/recipes/:id/review')
-//   .get(auth, reviewController.index)
+  .get(reviewController.index)
   .post(auth, reviewController.create);
 
 router.route('/recipes/:id/review/:reviewId')

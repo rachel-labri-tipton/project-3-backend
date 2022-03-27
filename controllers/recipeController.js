@@ -43,7 +43,7 @@ async function create(req, res, next) {
 }
 
 async function remove(req, res, next) {
- 
+
     const id = req.params.id
     try {
         const recipeToDelete = await Recipe.findOneAndDelete({ _id: id })
@@ -54,7 +54,7 @@ async function remove(req, res, next) {
         //     return res.status(401).json({ message: "You have to be an admin to delete this recipe." })
 
         // }
-       recipeToDelete.remove()
+        recipeToDelete.remove()
         res.sendStatus(204)
 
     } catch (err) {
@@ -101,10 +101,10 @@ async function showType(req, res, next) {
 
 
 export default {
-    index, 
+    index,
     show,
     create,
-    remove, 
-    update, 
+    remove,
+    update,
     showType
 }

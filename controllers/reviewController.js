@@ -1,8 +1,16 @@
 import Recipe from "../models/recipe.js"
 
-// // async function index(req, res, next) {
 
-// }
+async function index(req, res, next) {
+  const { id } = req.params
+  try {
+    const recipeReview = await Recipe.findById(id)
+    console.log(recipeReview)
+    res.send(recipeReview.review)
+  } catch (err) {
+    next(err)
+  }
+}
 
 
 async function create(req, res, next) {
@@ -83,4 +91,5 @@ async function update(req, res, next) {
     create,
     update,
     remove,
+    index
   }
