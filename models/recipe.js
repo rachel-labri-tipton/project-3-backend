@@ -5,8 +5,8 @@ const reviewSchema = new mongoose.Schema({
     // ? Inside here live our fields
     text: String,
     rating: Number,
-    // createdBy: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
-    // createAt: { type: Date, default: Date.now },
+    createdBy: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
+    createAt: { type: Date, default: Date.now },
     user: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
 })
 
