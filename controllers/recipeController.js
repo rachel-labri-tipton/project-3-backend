@@ -2,7 +2,7 @@
 import Recipe from "../models/recipe.js"
 
 
-async function index(req, res, next) {
+async function index(res, next) {
     try {
         const recipes = await Recipe.find()
         res.send(recipes)
@@ -51,10 +51,7 @@ async function remove(req, res, next) {
         if (!recipeToDelete) {
             return res.json({ message: "Recipe to delete not found." })
         }
-        // if (currentUser.role !== "admin") {
-        //     return res.status(401).json({ message: "You have to be an admin to delete this recipe." })
-
-        // }
+      
        recipeToDelete.remove()
         res.sendStatus(204)
 
