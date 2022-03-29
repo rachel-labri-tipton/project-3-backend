@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 })
 
 router.route("/recipes")
-    .get(auth, recipeController.index)
+    .get(recipeController.index)
     .post(auth, recipeController.create)
 
 router.route("/recipes/:id")
