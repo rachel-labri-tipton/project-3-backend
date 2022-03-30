@@ -7,7 +7,7 @@ async function index(res, next) {
         const recipes = await Recipe.find()
         res.send(recipes)
     } catch (e) {
-        res.send({ message: "There was a problem finding your recipes." })
+        next(e)
     }
 }
 
