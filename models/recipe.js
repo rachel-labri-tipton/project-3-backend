@@ -5,12 +5,12 @@ const reviewSchema = new mongoose.Schema({
     // ? Inside here live our fields
     text: String,
     rating: Number,
-    createdBy: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
+    createdBy: { type: String, required: true },
     createAt: { type: Date, default: Date.now },
     user: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
 })
 
-// ? This tells mongoose what a movie looks like
+// ? This tells mongoose what a recipe looks like
 const recipeSchema = new mongoose.Schema({
     // ? Inside here live our fields
     recipeName: { type: String, required: true, unique: true },
@@ -22,6 +22,7 @@ const recipeSchema = new mongoose.Schema({
     vegan: Boolean,
     vegeterian: Boolean,
     glutenFree: Boolean,
+    featuredRecipe: Boolean,
     recipeIngredients: { type: Array, required: true },
     recipeInstructions: { type: Array, required: true },
     image: { type: String, required: false },
