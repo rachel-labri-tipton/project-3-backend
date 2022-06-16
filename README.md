@@ -48,7 +48,7 @@ What we did based on project specifications for our MVP:
 
 **Our Focus:** Our group focused on simple stable code and tried to not wander too much into the weeds of super advanced functionality, as tempting as that may have been. Instead of reinventing the wheel, our group was interested in understanding how the wheel works. 
 
-![](./client/src/images/project-3-SGF-homepage.gif)
+![](/images/project-3-SGF-homepage.gif)
 
 #### Feel free to check out the deployed version here: 
 
@@ -67,11 +67,11 @@ We were also in agreement that a clear stand up where we set goals for the day a
 
 We used Excalidraw for wireframing: 
 
-![](/client/src/images/wireframe_main_pages.png)
+![](/images/wireframe_main_pages.png)
 
 We also set up a Trello Board that we'd use throughout our project:
 
-![](/client/src/images/trello_board.png)
+![](/images/trello_board.png)
 
 Outside of class work sessions, we used both Slack and Zoom for communication. 
 
@@ -227,19 +227,19 @@ function HomeFeaturedRecipes() {
 ```
 Our project has a page with All Recipes, around 100 of them: 
 
-![](./client/src/images/project-3-all-recipes.gif)
+![](/images/project-3-all-recipes.gif)
 
 We have a page with links to recipes by menu like breakfast, lunch, dinner, and dessert. 
 
-![](./client/src/images/project-3-menu-ideas-gif.gif)
+![](/images/project-3-menu-ideas-gif.gif)
 
 We have the page with the actual recipe and the possibility for a logged in user to leave a review. This function is not fully functional, but we got it working locally. 
 
-![](./client/src/images/project-3-recipe-gif.gif)
+![](/images/project-3-recipe-gif.gif)
 
 And we have a carousel which I found easier to implement than I thought it would be. 
 
-![](./client/src/images/project-3-carousel-gif.gif)
+![](/images/project-3-carousel-gif.gif)
 
 
 ## Deployment 
@@ -266,10 +266,10 @@ In both cases, running the deployment via the command line turned out to be the 
 
 ## Key learnings
 
-- Spent time discovering the React-Bootstrap library
-- Being more comfortable using Git and GitHub because my teammate was super supportive and answered a lot of questions
-- How to deploy an API on heroku.com
-- The work involved in planning and building an API
+- Spent time discovering the React-Bootstrap library. 
+- Being more comfortable using Git and GitHub because my teammate was super supportive and answered a lot of questions. 
+- How to deploy an API on heroku.com.
+- The work involved in planning and building an API.
 
 
 ## If we had more time...
