@@ -6,7 +6,7 @@ Building upon Project 2, which was a React frontend app that consumed an API, we
 
 *Here's a quick look at our Homepage:*
 
-![](./client/src/images/project-3-SGF-homepage.gif)
+![](/images/project-3-SGF-homepage.gif)
 
 ## Goal 
 A group project to design a MERN Stack application. 
